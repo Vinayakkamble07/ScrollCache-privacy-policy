@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScrollCache — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #131315;
+      --bg-card:   #1C1C1E;
+      --bg-soft:   #242426;
+      --bg-softer: #2C2C2E;
+      --ink:       #F1F1F1;
+      --ink-2:     #A0A0A8;
+      --ink-3:     #606068;
+      --line:      rgba(255,255,255,0.07);
+      --line-soft: rgba(255,255,255,0.04);
+      --accent:        #7C6FFF;
+      --accent-soft:   rgba(124,111,255,0.12);
+      --green:         #3DD68C;
+      --green-soft:    rgba(61,214,140,0.12);
+    }
+
+    html, body { background: var(--bg); }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    .serif { font-family: 'Instrument Serif', 'Times New Roman', serif; font-weight: 400; }
+
+    /* ─── Background grain ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.025) 1px, transparent 0);
+      background-size: 24px 24px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, transparent 60%);
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(19,19,21,0.85);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--line);
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-icon {
+      width: 30px;
+      height: 30px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 15px;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 4px 12px rgba(0,0,0,0.12);
+    }
+    .nav-name {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+    .nav-divider {
+      width: 1px;
+      height: 16px;
+      background: var(--line);
+      margin: 0 4px;
+    }
+    .nav-page {
+      font-size: 13px;
+      color: var(--ink-3);
+      font-weight: 500;
+    }
+    .nav-back {
+      font-size: 13px;
+      color: var(--ink-2);
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 8px;
+      transition: background 0.15s;
+    }
+    .nav-back:hover { background: var(--bg-soft); }
+
+    /* ─── Hero ─── */
+    .hero {
+      position: relative;
+      padding: 100px 32px 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      pointer-events: none;
+      animation: float 20s ease-in-out infinite;
+    }
+    .hero-orb-1 {
+      background: radial-gradient(circle, rgba(124,111,255,0.5) 0%, transparent 70%);
+      top: -100px; left: -200px;
+    }
+    .hero-orb-2 {
+      background: radial-gradient(circle, rgba(61,214,140,0.3) 0%, transparent 70%);
+      top: 100px; right: -200px;
+      animation-delay: -10s;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(40px, -30px) scale(1.1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      padding: 7px 14px 7px 7px;
+      border-radius: 99px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .pill-dot {
+      width: 18px;
+      height: 18px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+    .pill strong { color: var(--ink); font-weight: 600; }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -3.5px;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-family: 'Instrument Serif', serif;
+      font-weight: 400;
+      letter-spacing: -2px;
+      color: var(--accent);
+    }
+    .hero h1 .strike {
+      position: relative;
+      display: inline-block;
+      color: var(--ink-3);
+    }
+    .hero h1 .strike::after {
+      content: '';
+      position: absolute;
+      left: -4px; right: -4px;
+      top: 52%;
+      height: 5px;
+      background: var(--accent);
+      transform: rotate(-2deg);
+      border-radius: 99px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--ink-2);
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      color: var(--ink-3);
+      font-variant-numeric: tabular-nums;
+    }
+    .hero-meta-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--ink-3);
+    }
+
+    /* ─── Trust strip ─── */
+    .trust {
+      padding: 0 32px 48px;
+    }
+    .trust-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      padding: 24px 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-2);
+      font-weight: 500;
+    }
+    .trust-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--bg-soft);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    /* ─── Container ─── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+    }
+
+    /* ─── Section heading ─── */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+    .section-heading h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -1.8px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .section-heading h2 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .section-heading p {
+      font-size: 17px;
+      color: var(--ink-2);
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ─── TLDR Cards ─── */
+    .tldr {
+      padding: 80px 0;
+    }
+    .tldr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+    }
+    .card-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, var(--accent-soft) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+    }
+    .card-icon-wrap.indigo {
+      background: linear-gradient(180deg, var(--accent-soft) 0%, transparent 100%);
+    }
+    .card-icon-wrap.green {
+      background: linear-gradient(180deg, var(--green-soft) 0%, transparent 100%);
+    }
+    .card-icon-wrap.gray {
+      background: linear-gradient(180deg, var(--bg-soft) 0%, transparent 100%);
+    }
+    .card h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .card p {
+      font-size: 14px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+
+    /* ─── Sections ─── */
+    .body-sections {
+      padding: 40px 0 80px;
+    }
+    .section {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 64px;
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+      align-items: start;
+    }
+    .section:last-child { border-bottom: 1px solid var(--line); }
+
+    .section-side {
+      position: sticky;
+      top: 96px;
+    }
+    .section-num {
+      font-family: 'Instrument Serif', serif;
+      font-size: 56px;
+      line-height: 1;
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 400;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .section-side-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--ink);
+    }
+    .section-side-sub {
+      font-size: 13px;
+      color: var(--ink-3);
+      margin-top: 4px;
+    }
+
+    .section-main h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 28px 0 12px;
+      letter-spacing: -0.2px;
+    }
+    .section-main h3:first-child { margin-top: 0; }
+    .section-main p {
+      font-size: 16px;
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .section-main p:last-child { margin-bottom: 0; }
+    .section-main strong { color: var(--ink); font-weight: 600; }
+    .section-main code {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      background: var(--bg-soft);
+      padding: 2px 8px;
+      border-radius: 5px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+    }
+    .section-main a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      transition: opacity 0.15s;
+    }
+    .section-main a:hover { opacity: 0.7; }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+    .check-list li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      margin-top: 2px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'><path d='M13.485 4.515a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L6.778 9.808l5.293-5.293a1 1 0 011.414 0z'/></svg>");
+      background-size: 14px;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* Permission rows */
+    .perm-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .perm-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 20px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      align-items: start;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .perm-row:hover {
+      border-color: rgba(255,255,255,0.14);
+    }
+    .perm-name {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      background: var(--bg-soft);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      text-align: center;
+      width: fit-content;
+    }
+    .perm-desc {
+      font-size: 14px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+
+    /* ─── CTA Footer ─── */
+    .cta {
+      margin: 80px 32px;
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 72px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      color: var(--ink);
+    }
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(124,111,255,0.15) 0%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .cta::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(61,214,140,0.1) 0%, transparent 70%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .cta h2 em {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .cta p {
+      font-size: 17px;
+      color: var(--ink-2);
+      max-width: 460px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .cta-actions {
+      display: inline-flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, opacity 0.15s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { transform: translateY(-1px); opacity: 0.9; }
+    .btn-ghost {
+      background: var(--bg-soft);
+      color: var(--ink-2);
+      border: 1px solid var(--line);
+    }
+    .btn-ghost:hover { background: var(--bg-softer); color: var(--ink); }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 48px 32px 64px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+    footer .foot-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    footer p {
+      font-size: 13px;
+      color: var(--ink-3);
+    }
+    footer a { color: var(--ink-2); text-decoration: none; }
+    footer a:hover { color: var(--ink); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 720px) {
+      nav { padding: 0 20px; }
+      .nav-divider, .nav-page { display: none; }
+      .hero { padding: 60px 20px 40px; }
+      .container { padding: 0 20px; }
+      .section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 40px 0;
+      }
+      .section-side { position: static; }
+      .section-num { font-size: 40px; }
+      .perm-row { grid-template-columns: 1fr; gap: 8px; }
+      .cta { margin: 60px 20px; padding: 56px 28px; border-radius: 20px; }
+      .trust { padding: 0 20px 32px; }
+      .trust-inner { gap: 20px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-left">
+      <img src="icons/icon48.png" alt="ScrollCache" style="width:30px;height:30px;border-radius:8px;object-fit:cover;display:block">
+      <span class="nav-name">ScrollCache</span>
+      <span class="nav-divider"></span>
+      <span class="nav-page">Privacy</span>
+    </div>
+    <a href="#" class="nav-back">← Back to extension</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-content">
+      <div class="pill">
+        <span class="pill-dot">✓</span>
+        <span><strong>100% local</strong> — no servers, no analytics</span>
+      </div>
+      <h1>
+        Privacy that's<br>
+        <em>actually</em> private.
+      </h1>
+      <p>ScrollCache saves posts directly to your own Google Sheet. Nothing touches our servers — because we don't have any.</p>
+      <div class="hero-meta">
+        <span>Last updated</span>
+        <span class="hero-meta-dot"></span>
+        <span>May 23, 2026</span>
+        <span class="hero-meta-dot"></span>
+        <span>Effective immediately</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust strip -->
+  <section class="trust">
+    <div class="trust-inner">
+      <div class="trust-item"><span class="trust-icon">🚫</span> Zero analytics</div>
+      <div class="trust-item"><span class="trust-icon">🔒</span> No data sold</div>
+      <div class="trust-item"><span class="trust-icon">🌐</span> No backend servers</div>
+      <div class="trust-item"><span class="trust-icon">🔓</span> Open source</div>
+      <div class="trust-item"><span class="trust-icon">⚡</span> Local-only storage</div>
+    </div>
+  </section>
+
+  <!-- TLDR -->
+  <section class="tldr">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-eyebrow">The short version</span>
+        <h2>Four things you should <em>actually</em> know</h2>
+        <p>If you read nothing else, read this. Everything below is the same idea with more words.</p>
+      </div>
+      <div class="tldr-grid">
+        <div class="card">
+          <div class="card-icon-wrap">📄</div>
+          <h3>Your sheet, your data</h3>
+          <p>Saves go to a Google Sheet in your own Drive. We never see it, store it, or copy it.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon-wrap indigo">🚫</div>
+          <h3>Zero tracking</h3>
+          <p>No analytics, no crash reports, no telemetry sent to us or any third party. Ever.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon-wrap green">🔑</div>
+          <h3>Tokens stay local</h3>
+          <p>Your Google OAuth token lives only in your browser's storage. It never leaves your device.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon-wrap gray">🗑️</div>
+          <h3>Delete in one click</h3>
+          <p>Hit Disconnect in the popup and everything is gone. Your sheet is yours to keep or trash.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed sections -->
+  <section class="body-sections">
+    <div class="container">
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">01</span>
+          <div class="section-side-title">What we collect</div>
+          <div class="section-side-sub">Only what you save</div>
+        </div>
+        <div class="section-main">
+          <p>When you click <strong>💾 Save</strong> on a post, ScrollCache reads and writes the following fields to <strong>your own Google Sheet</strong>:</p>
+          <ul class="check-list">
+            <li>Platform — Facebook or Instagram</li>
+            <li>Post type — Ad or organic Post</li>
+            <li>Author or advertiser name</li>
+            <li>Post caption or text (capped at 500 chars)</li>
+            <li>Post URL, when available</li>
+            <li>Timestamp of when you saved it</li>
+          </ul>
+          <p style="margin-top:20px">That's it. We don't read your messages, your friends list, your profile, or any page content beyond the post you explicitly chose to save.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">02</span>
+          <div class="section-side-title">Where it goes</div>
+          <div class="section-side-sub">Straight to your Drive</div>
+        </div>
+        <div class="section-main">
+          <p>All saved data is written directly to a Google Sheet inside <strong>your own Google Drive</strong> via the official Google Sheets API.</p>
+          <p>ScrollCache has no server, no database, and no backend infrastructure of any kind. The data path is:</p>
+          <p style="background:var(--bg-soft);padding:16px 20px;border-radius:12px;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--ink);border:1px solid var(--line)">
+            Your browser → Google Sheets API → Your Sheet
+          </p>
+          <p>Nothing in between. Nothing logged. Nothing copied.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">03</span>
+          <div class="section-side-title">OAuth & tokens</div>
+          <div class="section-side-sub">Local browser storage only</div>
+        </div>
+        <div class="section-main">
+          <p>To write to your Sheet, ScrollCache needs you to sign in with Google once. The access token we receive is:</p>
+          <ul class="check-list">
+            <li>Stored locally via <code>chrome.storage.sync</code> in your browser</li>
+            <li>Used solely to authenticate Sheets API requests on your behalf</li>
+            <li>Never sent to any server we operate (we don't have one)</li>
+            <li>Automatically expires after about 1 hour</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">04</span>
+          <div class="section-side-title">Permissions</div>
+          <div class="section-side-sub">Each one explained</div>
+        </div>
+        <div class="section-main">
+          <div class="perm-grid">
+            <div class="perm-row">
+              <span class="perm-name">facebook.com</span>
+              <span class="perm-desc">Inject the Save button and read post content on Facebook pages.</span>
+            </div>
+            <div class="perm-row">
+              <span class="perm-name">instagram.com</span>
+              <span class="perm-desc">Inject the Save button and read post content on Instagram pages.</span>
+            </div>
+            <div class="perm-row">
+              <span class="perm-name">sheets API</span>
+              <span class="perm-desc">Append rows to your Google Sheet whenever you save a post.</span>
+            </div>
+            <div class="perm-row">
+              <span class="perm-name">identity</span>
+              <span class="perm-desc">Authenticate with your Google account via OAuth 2.0.</span>
+            </div>
+            <div class="perm-row">
+              <span class="perm-name">storage</span>
+              <span class="perm-desc">Store your Sheet ID and OAuth token locally in your browser.</span>
+            </div>
+            <div class="perm-row">
+              <span class="perm-name">scripting</span>
+              <span class="perm-desc">Re-inject the extension into an open tab via the Reload button.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">05</span>
+          <div class="section-side-title">Third parties</div>
+          <div class="section-side-sub">Just Google. That's all.</div>
+        </div>
+        <div class="section-main">
+          <p>ScrollCache uses two Google services and nothing else:</p>
+          <ul class="check-list">
+            <li>Google Sheets API — to store your saved posts</li>
+            <li>Google OAuth 2.0 — to authenticate your account</li>
+          </ul>
+          <p style="margin-top:20px">Google's <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> governs how Google handles data on their end. There are <strong>no</strong> other third-party SDKs, analytics tools, error trackers, or telemetry services in this extension.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">06</span>
+          <div class="section-side-title">Deleting data</div>
+          <div class="section-side-sub">You're in full control</div>
+        </div>
+        <div class="section-main">
+          <p>Want it gone? Here's every way to do that:</p>
+          <ul class="check-list">
+            <li>Click <strong>Disconnect</strong> in the popup to wipe the OAuth token and Sheet ID from the extension</li>
+            <li>Delete rows in your Sheet to remove individual saves</li>
+            <li>Delete the entire Sheet to remove all saved posts at once</li>
+            <li>Uninstall the extension to remove all local extension data</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">07</span>
+          <div class="section-side-title">Contact</div>
+          <div class="section-side-sub">We'd love to hear from you</div>
+        </div>
+        <div class="section-main">
+          <p>Questions, concerns, bug reports, or feature requests? Open an issue on our GitHub repository or reach out via the contact info on our Chrome Web Store listing.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <h2>Ready to save<br>like a <em>pro</em>?</h2>
+      <p>Install ScrollCache and start building your personal ad library — entirely under your control.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-primary">
+          Install Extension
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#" class="btn btn-ghost">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot-logo">
+      <img src="icons/icon48.png" alt="ScrollCache" style="width:28px;height:28px;border-radius:7px;object-fit:cover;display:block">
+      <span class="nav-name">ScrollCache</span>
+    </div>
+    <p>© 2026 ScrollCache · <a href="#">Chrome Web Store</a> · <a href="#">GitHub</a></p>
+  </footer>
+
+</body>
+</html>
