@@ -659,17 +659,17 @@
     <div class="hero-content">
       <div class="pill">
         <span class="pill-dot">✓</span>
-        <span><strong>100% local</strong> — no servers, no analytics</span>
+        <span><strong>Your data stays in your sheet</strong> — anonymous usage stats only</span>
       </div>
       <h1>
         Privacy that's<br>
         <em>actually</em> private.
       </h1>
-      <p>ScrollCache saves posts directly to your own Google Sheet. Nothing touches our servers — because we don't have any.</p>
+      <p>ScrollCache saves posts directly to your own Google Sheet. We collect anonymous usage counts (install / connect / save) to help improve the extension — never the content you save.</p>
       <div class="hero-meta">
         <span>Last updated</span>
         <span class="hero-meta-dot"></span>
-        <span>May 23, 2026</span>
+        <span>June 11, 2026</span>
         <span class="hero-meta-dot"></span>
         <span>Effective immediately</span>
       </div>
@@ -679,9 +679,9 @@
   <!-- Trust strip -->
   <section class="trust">
     <div class="trust-inner">
-      <div class="trust-item"><span class="trust-icon">🚫</span> Zero analytics</div>
+      <div class="trust-item"><span class="trust-icon">📊</span> Anonymous stats only</div>
       <div class="trust-item"><span class="trust-icon">🔒</span> No data sold</div>
-      <div class="trust-item"><span class="trust-icon">🌐</span> No backend servers</div>
+      <div class="trust-item"><span class="trust-icon">📄</span> Your sheet, your data</div>
       <div class="trust-item"><span class="trust-icon">🔓</span> Open source</div>
       <div class="trust-item"><span class="trust-icon">⚡</span> Local-only storage</div>
     </div>
@@ -702,9 +702,9 @@
           <p>Saves go to a Google Sheet in your own Drive. We never see it, store it, or copy it.</p>
         </div>
         <div class="card">
-          <div class="card-icon-wrap indigo">🚫</div>
-          <h3>Zero tracking</h3>
-          <p>No analytics, no crash reports, no telemetry sent to us or any third party. Ever.</p>
+          <div class="card-icon-wrap indigo">📊</div>
+          <h3>Anonymous stats only</h3>
+          <p>We log 3 events (install, connect, save) with a random ID — never URLs, captions, or content you save.</p>
         </div>
         <div class="card">
           <div class="card-icon-wrap green">🔑</div>
@@ -763,6 +763,25 @@
       <div class="section">
         <div class="section-side">
           <span class="section-num">03</span>
+          <div class="section-side-title">Anonymous analytics</div>
+          <div class="section-side-sub">Counts only — no content</div>
+        </div>
+        <div class="section-main">
+          <p>To understand how ScrollCache is used and where to invest in improvements, the extension records <strong>three anonymous events</strong>:</p>
+          <ul class="check-list">
+            <li><code>extension_installed</code> — once, when you first install</li>
+            <li><code>google_sheet_connected</code> — when you connect your Google Sheet for the first time</li>
+            <li><code>post_saved</code> — when a save succeeds, with two flags only: which platform (Instagram or Facebook) and which type (Ad or Post)</li>
+          </ul>
+          <p style="margin-top:20px">Each event is tagged with a <strong>random anonymous ID</strong> generated locally on your device the first time the extension runs. This ID is not linked to your Google account, your email, or any personal identifier.</p>
+          <p><strong>What we never log:</strong> post URLs, captions, author names, your sheet ID, your Google account, or any content you save. The full list of fields sent is exactly what's described above — nothing more.</p>
+          <p>Events are sent to a Google Apps Script endpoint we own, which appends a row to a private sheet visible only to us. You can opt out by disabling the extension or uninstalling it.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-side">
+          <span class="section-num">04</span>
           <div class="section-side-title">OAuth & tokens</div>
           <div class="section-side-sub">Local browser storage only</div>
         </div>
@@ -779,7 +798,7 @@
 
       <div class="section">
         <div class="section-side">
-          <span class="section-num">04</span>
+          <span class="section-num">05</span>
           <div class="section-side-title">Permissions</div>
           <div class="section-side-sub">Each one explained</div>
         </div>
@@ -815,7 +834,7 @@
 
       <div class="section">
         <div class="section-side">
-          <span class="section-num">05</span>
+          <span class="section-num">06</span>
           <div class="section-side-title">Third parties</div>
           <div class="section-side-sub">Just Google. That's all.</div>
         </div>
@@ -831,7 +850,7 @@
 
       <div class="section">
         <div class="section-side">
-          <span class="section-num">06</span>
+          <span class="section-num">07</span>
           <div class="section-side-title">Deleting data</div>
           <div class="section-side-sub">You're in full control</div>
         </div>
@@ -848,7 +867,7 @@
 
       <div class="section">
         <div class="section-side">
-          <span class="section-num">07</span>
+          <span class="section-num">08</span>
           <div class="section-side-title">Contact</div>
           <div class="section-side-sub">We'd love to hear from you</div>
         </div>
