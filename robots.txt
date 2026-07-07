@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://scrollcache.app/sitemap.xml
+Sitemap: https://vinayakkamble07.github.io/ScrollCache-privacy-policy/sitemap.xml
